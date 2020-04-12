@@ -1,0 +1,58 @@
+﻿@page "/"
+@inject IndexViewModel viewModel
+
+            <ViewModelRegion ViewModel="@viewModel">
+                <div class="header_wrap">
+                    <Header />
+                </div>
+
+                <div class="pc_title_wrap">
+                    <h3 class="pc_title mo_top">알려드립니다.</h3>
+                </div>
+                <div class="pc_board_wrap ">
+                    <AnnounceCoronaInfo />
+                </div>
+
+                <div class="visual_wrap">
+                    <CurrentState />
+                </div>
+                <div class="content_wrap">
+                    <CoronaState />
+
+                    <ul class="info_popup">
+                        <li class="on popup_open"><a href="javascript:;" @onclick="() => viewModel.OpenPop(IndexPop.Pop1)">선별진료소현황</a></li>
+                        <li class="popup_open"><a href="javascript:;" @onclick="() => viewModel.OpenPop(IndexPop.Pop2)">Q&A</a></li>
+                        <li class="popup_open"><a href="javascript:;" @onclick="() => viewModel.OpenPop(IndexPop.Pop3)">대응절차</a></li>
+                    </ul>
+
+                    <CoronaInfo />
+
+                    <ul class="board_tab tabs">
+                        <li data-tab="tab03" class="on"><a href="javascript:;">용어정의</a></li>
+                        <li><a href="http://www.cdc.go.kr/" target="blank">질병관리본부</a></li>
+                    </ul>
+
+                    <!-- 용어정의-->
+                    <div class="tab_content on" id="tab03">
+                        <CoronaTermsInfo />
+                    </div>
+
+                    <!--모바일 게시판-->
+                    <!-- 용어정의-->
+                    <h3 class="mo_title @(viewModel.CanViewMobileCoronaTerms ? "on" : "")" @onclick="() => viewModel.ToggleMobileCoronaTerms()">용어정의</h3>
+                    <div class="mo_board_wrap" style="display:@(viewModel.CanViewMobileCoronaTerms ? "block" : "none");">
+                        <CoronaTermsInfo />
+                    </div>
+
+                    <!--질병관리본부-->
+                    <h3 class=" mo_title"><a href="http://www.cdc.go.kr/" target="blank">질병관리본부</a></h3>
+
+                </div>
+                <div class="footer_wrap">
+                    <p class="address">
+                        <span>우)00000 000시 000구 000로 00 </span> <span>TEL:000-000-0000</span>
+                    </p>
+                </div>
+
+                <IndexPopup />
+            </ViewModelRegion>

@@ -1,0 +1,18 @@
+﻿@using System.ComponentModel
+
+@ChildContent
+
+@code {
+    //참조 : https://blog.jeremylikness.com/blog/2019-01-04_mvvm-support-in-blazor/
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public INotifyPropertyChanged ViewModel { get; set; }
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+        ViewModel.PropertyChanged += (o, e) => StateHasChanged();
+    }
+}

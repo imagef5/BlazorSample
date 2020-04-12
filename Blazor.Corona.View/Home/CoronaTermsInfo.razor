@@ -1,0 +1,27 @@
+﻿@inject CoronaTermsInfoViewModel  viewModel
+            <ViewModelRegion ViewModel="@viewModel">
+                <ul class="broad_list">
+                    @if (viewModel.CoronaTermsInfos?.Count > 0)
+                    {
+                        var coronaTermsInfos = viewModel.CoronaTermsInfos;
+                        foreach (var coronaTerms in coronaTermsInfos)
+                        {
+                            <li>
+                                <div class="broad_title">
+                                    <div class="left">
+                                        <span class="num">@coronaTerms.Created.ToString("dd")</span>
+                                        <span class="date">@coronaTerms.Created.ToString("yyyy.MM")</span>
+                                    </div>
+                                    <a href="javascript:;" class="title" @onclick="() => viewModel.ToggleContent(coronaTerms)">@coronaTerms.Title</a>
+                                    <a href="javascript:;" class="btn_open @((viewModel.CanViewContent && viewModel.ViewContent.Equals(coronaTerms)) ? "on" : "")"  @onclick="() => viewModel.ToggleContent(coronaTerms)">본문열기</a>
+                                </div>
+                                <div class="broad_content" style="display:@((viewModel.CanViewContent && viewModel.ViewContent.Equals(coronaTerms)) ? "block" : "none");">
+                                    @((MarkupString)coronaTerms.Content)
+                                </div>
+                            </li>
+                        }
+                    }
+                </ul>
+                <!--페이징 -->
+                <Pager Pagination="@viewModel.Pagination" PageChanged="@viewModel.GetCoronaTermsInfo"/>
+            </ViewModelRegion>

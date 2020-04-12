@@ -1,0 +1,25 @@
+﻿@inherits PagerComponent
+                @if (Pagination != null)
+                {
+                    <div class="paging_wrap">
+                        @if (Pagination.StartPage > 1)
+                        {
+                            <a href="javascript:;" class="page_start page" @onclick="() => PagerButtonClicked(1)">처음으로</a>
+                            <a href="javascript:;" class="page_prev page" @onclick="() => PagerButtonClicked(Pagination.PrevPage)">이전</a>
+                        }
+                        @for (int i = 0; i < Pagination.PageSize; i++)
+                        {
+                            int currentPage = i + Pagination.StartPage;
+                            if (currentPage > Pagination.TotalPage)
+                            {
+                                break;
+                            }
+                            <a href="javascript:;" class="page @(currentPage == Pagination.CurrentPage ? "page_current" : "")" @onclick="() => PagerButtonClicked(currentPage)">@(currentPage)</a>
+                        }
+                        @if (Pagination.TotalPage > Pagination.NextPage)
+                        {
+                            <a href="javascript:;" class="page_next page" @onclick="() => PagerButtonClicked(Pagination.NextPage)">다음</a>
+                            <a href="javascript:;" class="page_end page" @onclick="() => PagerButtonClicked(Pagination.TotalPage)">마지막으로</a>
+                        }
+                    </div>
+                }

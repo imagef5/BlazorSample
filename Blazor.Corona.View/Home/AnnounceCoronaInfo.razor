@@ -1,0 +1,25 @@
+﻿@inject AnnounceCoronaInfoViewModel  coronaInfoViewModel
+        <ViewModelRegion ViewModel="@coronaInfoViewModel">
+            @if (coronaInfoViewModel.CoronaInfo != null)
+            {
+                <div class="inner">
+                    <ul class="broad_list">
+                        <li>
+                            <div class="broad_title">
+                                <span class="date">@coronaInfoViewModel.CoronaInfo.Created.ToString("yyyy.MM.dd")</span>
+                                <a href="javascript:;" class="title" @onclick="@(() => coronaInfoViewModel.ToggleContent())" >@coronaInfoViewModel.CoronaInfo.Title</a>
+                                <a href="javascript:;" class="open_view"  @onclick="@(() => coronaInfoViewModel.ToggleContent())" ><span>자세히보기</span></a>
+                                <!-- <a href="javascript:;" class="btn_open">본문열기</a> -->
+                            </div>
+                            <div class="broad_content" style="display:@(coronaInfoViewModel.CanViewContent ? "block" : "none");">
+                                @((MarkupString)coronaInfoViewModel.CoronaInfo.Content)
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="control_wrap">
+                        <a href="javascript:;" class="page_prev " @onclick="@(async () => await coronaInfoViewModel.GetPrevCoronoInfo())">이전</a>
+                        <a href="javascript:;" class="page_next " @onclick="@(async () => await coronaInfoViewModel.GetNextCoronoInfo())">다음</a>
+                    </div>
+                </div>
+            }
+        </ViewModelRegion>

@@ -1,0 +1,59 @@
+﻿@inject LocalStateViewModel LocalViewModel
+
+    <ViewModelRegion ViewModel="@LocalViewModel">
+        <div class="infection_wrap on" id="korea">
+            <h3>전국</h3>
+            <p class="infection_txt">(제공일: @(LocalViewModel.LocalStatus?.Offered.Month).@(LocalViewModel.LocalStatus?.Offered.Day))</p>
+            <div class="infection_nav">
+                <dl>
+                    <dd class="certainly">@LocalViewModel.LocalStatus?.WholeConfirmedCount</dd>
+                    <dt>확진자</dt>
+                </dl>
+                <dl>
+                    <dd>@LocalViewModel.LocalStatus?.DeadCount</dd>
+                    <dt>사망자</dt>
+                </dl>
+                <dl>
+                    <dd>@LocalViewModel.LocalStatus?.CheckupCount</dd>
+                    <dt>검사중</dt>
+                </dl>
+                <dl>
+                    <dd>@LocalViewModel.LocalStatus?.NegativeCount</dd>
+                    <dt>결과 음성</dt>
+                </dl>
+            </div>
+        </div>
+
+        <!--인천 -->
+        <div class="infection_wrap " id="incheon">
+            <h3>인천</h3>
+            <p class="infection_txt">(제공일: @(LocalViewModel.LocalStatus?.Offered.Month).@(LocalViewModel.LocalStatus?.Offered.Day))</p>
+            <div class="infection_nav incheon">
+                <dl>
+                    <dd class="certainly">@LocalViewModel.LocalStatus?.ConfirmedCount</dd>
+                    <dt>확진자</dt>
+                    <dd class="change">(@Util.GetUpOrDownMaker(LocalViewModel.LocalStatus?.IncreaseConfirmedCount) @Util.Abs(LocalViewModel.LocalStatus?.IncreaseConfirmedCount))</dd>
+                </dl>
+                <dl>
+                    <dd>@LocalViewModel.LocalStatus?.ContactedCount</dd>
+                    <dt>접촉자</dt>
+                    <dd class="change">(@Util.GetUpOrDownMaker(LocalViewModel.LocalStatus?.IncreaseContactedCount) @Util.Abs(LocalViewModel.LocalStatus?.IncreaseContactedCount))</dd>
+                </dl>
+                <dl>
+                    <dd>@LocalViewModel.LocalStatus?.SuspectedCount</dd>
+                    <dt>유증상자</dt>
+                    <dd class="change">(@Util.GetUpOrDownMaker(LocalViewModel.LocalStatus?.IncreaseSuspectedCount) @Util.Abs(LocalViewModel.LocalStatus?.IncreaseSuspectedCount))</dd>
+                </dl>
+                <dl>
+                    <dd>@LocalViewModel.LocalStatus?.SelfIsolationCount</dd>
+                    <dt>자가격리</dt>
+                    <dd class="change">(@Util.GetUpOrDownMaker(LocalViewModel.LocalStatus?.IncreaseSelfIsolationCount) @Util.Abs(LocalViewModel.LocalStatus?.IncreaseSelfIsolationCount))</dd>
+                </dl>
+                <dl>
+                    <dd>@LocalViewModel.LocalStatus?.VisitWuhanCount</dd>
+                    <dt>우한입국자</dt>
+                    <dd class="change">(@Util.GetUpOrDownMaker(LocalViewModel.LocalStatus?.IncreaseVisitWuhanCount) @Util.Abs(LocalViewModel.LocalStatus?.IncreaseVisitWuhanCount))</dd>
+                </dl>
+            </div>
+        </div>
+    </ViewModelRegion>

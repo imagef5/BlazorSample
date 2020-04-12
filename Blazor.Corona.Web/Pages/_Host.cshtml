@@ -1,0 +1,47 @@
+﻿@page "/"
+@namespace Blazor.Corona.Web.Pages
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = null;
+    var host = this.Request.Host;
+    var scheme = this.Request.Scheme;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>신종 코로나바이러스감염증 비상대책</title>
+    <meta property="og:keywords" content="코로나19">
+    <meta property="og:url" content="http://gocoder.tistory.com" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="신종 코로나바이러스감염증 비상대책" />
+    <meta property="og:description" content="코로나19 비상대책" />
+    <meta property="og:image" content="@scheme://@host/images/corona.jpg" />
+    <base href="~/" />
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,300,400,500,700,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css" asp-append-version="true" />
+</head>
+<body>
+    <app>
+        <component type="typeof(Blazor.Corona.View.CoronaView)" render-mode="ServerPrerendered" />
+    </app>
+
+    <script src="_framework/blazor.server.js"></script>
+    <script>
+        function shareFacebook() {
+            var msg = document.title;
+            var url = document.location.href;
+            var href = "https://www.facebook.com/sharer/sharer.php?t=" + encodeURIComponent(msg) + "&u=" + encodeURIComponent(url);
+            var a = window.open(href, 'facebookPopup', '');
+            if (a) {
+                a.focus();
+            }
+        }
+    </script>
+</body>
+</html>

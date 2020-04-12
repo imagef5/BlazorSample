@@ -1,0 +1,65 @@
+﻿@inject CurrentStateViewModel  currentViewModel
+
+    <ViewModelRegion ViewModel="@currentViewModel">
+        <div class="visual_inner">
+            <p>신종 코로나바이러스 감염증</p>
+            <p><strong style="color:#0f2426;font-weight:700;">0000시</strong> 대응현황</p>
+            <p>@currentViewModel.CurrentStatus?.Offered.ToString("MM")월 @currentViewModel.CurrentStatus?.Offered.ToString("dd")일 @currentViewModel.CurrentStatus?.Offered.ToString("HH"):00 기준</p>
+            <!-- <p>확진환자접촉자, 능동감시, 의사환자 및 유증상자 관리현황</p> -->
+            <div class="status_wrap">
+                <div class="left">
+                    <dl>
+                        <dd>@currentViewModel.CurrentStatus?.ContactedSelfIsolation</dd>
+                        <dt>자가격리</dt>
+                    </dl>
+                    <dl>
+                        <dd>
+                            @currentViewModel.CurrentStatus?.ClearContactedSelfIsonation
+                        </dd>
+                        <dt>관리해제</dt>
+                    </dl>
+                    <p class="tit">확진자의접촉자</p>
+                </div>
+                <div class="left">
+                    <dl>
+                        <dd>@currentViewModel.CurrentStatus?.SuspectedCase</dd>
+                        <dt>검사중<!-- <span>(진단검사)</span> --></dt>
+                    </dl>
+                    <dl>
+                        <dd>@currentViewModel.CurrentStatus?.NegativeResult</dd>
+                        <dt>결과 음성</dt>
+                    </dl>
+                    <p class="tit">의사환자</p>
+                </div>
+                <div class="left">
+                    <dl>
+                        <dd>@currentViewModel.CurrentStatus?.SelfIsolation</dd>
+                        <dt>자가격리</dt>
+                    </dl>
+                    <dl>
+                        <dd>@currentViewModel.CurrentStatus?.ClearSelfIsolation</dd>
+                        <dt>관리해제</dt>
+                    </dl>
+                    <p class="tit">자가격리 대상자</p>
+                </div>
+            </div>
+
+            <div class="status_desc">
+                <ul class="status_list">
+                    <li>
+                        ※ 의사환자 : 발열 또는 호흡기증상으로 신종
+                        코로나바이러스감염증이 의심되는 자
+                    </li>
+                    <li>
+                        ※ 자가격리 : 지침 개정 전 자가격리 분류자,
+                        중국 후베이성(우한) 방문자 등
+                    </li>
+                    <li>
+                        ※ 관리해제 : 모니터링 기간 14일이 만료되어
+                        관리가 해제된 자
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+    </ViewModelRegion>
