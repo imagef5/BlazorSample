@@ -8,10 +8,10 @@
 - Blazor.Corona.Configuration
     - Repository, Services DI 관리
 - Blazor.Corona.View
-    - Blazor.Corona. Web (웹페이지) & Blazor.Corona.Native (WebWindow) 에서 사용될 공통 페이지 프로젝트
-- Blazor.Corona. Web
-    - Blazor.Corona.View 공통 페이지를 Web 으로 노출
+    - Blazor.Corona.Web (웹페이지) & Blazor.Corona.Native (WebWindow) 에서 사용될 공통 페이지 프로젝트
     - MVVM 패턴적용
+- Blazor.Corona.Web
+    - Blazor.Corona.View 공통 페이지를 Web 으로 노출
 - Blazor.Corona.Native
     - Blazor.Corona.View 공통 페이지를 WebWindow 로 노출
 
