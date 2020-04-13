@@ -5,7 +5,7 @@
     - 코로나 관련 정보 Domain 
 - Blazor.Corona.Repository, Blazor.Corona.Services
     - DB 접근및 Business logic 관리
-    - Entity Framecore Core
+    - Entity Framework Core
 - Blazor.Corona.Configuration
     - Repository, Services DI 관리
 - Blazor.Corona.View
