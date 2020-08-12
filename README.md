@@ -25,7 +25,7 @@
 # 3. 기타 참조
 - [MVVM Support in Blazor](https://blog.jeremylikness.com/blog/2019-01-04_mvvm-support-in-blazor/)
 - [Prism](https://prismlibrary.com/)
-    - Prism 은 현재 Blazor 와 통합되어 있지 않음, Prism 기능중 일부만 사용([Event Aggregator](https://prismlibrary.com/docs/event-aggregator.html))
+    - Prism 기능중 일부만 사용([Event Aggregator](https://prismlibrary.com/docs/event-aggregator.html))
 
 # 4. 고려사항
 - 페이지 상에서 Component (일종의 partial view)를 분리하여 ViewModel을 구성한후 DB를 비동기로 호출할 경우 DbContext 가 인스턴스 스레드로부터 안전하지 않기때문에 병렬 스레드 사용시 문제가 발생할 수 있음.
