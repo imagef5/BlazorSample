@@ -1,4 +1,4 @@
-# MVVM 패턴을 이용한 Blazor web and WebWidow Sample
+# MVVM 패턴을 이용한 Blazor web and WebWindow Sample
 
 # 1. 구성
 - Blazor.Corona.Domain
