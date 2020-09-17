@@ -21,7 +21,7 @@
 - Linux : [WebKit](https://webkit.org/)
 - Mac : Safari
 - [참조 : Exploring WebWindow examples for Blazor on desktop](https://gunnarpeipman.com/blazor-on-desktop-webwindow-experiment/)
-[Meet WebWindow, a cross-platform webview library for .NET Core](https://blog.stevensanderson.com/2019/11/18/2019-11-18-webwindow-a-cross-platform-webview-for-dotnet-core/)
+- [Meet WebWindow, a cross-platform webview library for .NET Core](https://blog.stevensanderson.com/2019/11/18/2019-11-18-webwindow-a-cross-platform-webview-for-dotnet-core/)
 
 # 3. 기타 참조
 - [MVVM Support in Blazor](https://blog.jeremylikness.com/blog/2019-01-04_mvvm-support-in-blazor/)
